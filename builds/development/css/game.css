@@ -1,0 +1,65 @@
+body{
+  margin: 40px 20px;
+}
+
+#header {
+  overflow: auto;
+}
+
+#resetBtn {
+  display: block;
+  margin: auto;
+}
+
+.counter {
+  float: left;
+}
+
+.timer {
+  float: right;
+}
+
+#board {
+  text-align: center;
+  padding-bottom: 2px;
+}
+
+.row{
+  height: 1.5em;
+}
+
+.row:last-of-type .cell{
+  border-bottom: 1px solid red;
+}
+
+.cell:last-child{
+  border-right: 1px solid red;
+}
+
+.cell{
+  height: 1.5em;
+  width: 1.5em;
+  display: inline-block;
+  background-color: white;
+  border-left: 1px solid red;
+  border-top: 1px solid red;
+  vertical-align: middle;
+  user-select: none;
+  cursor: pointer;
+}
+
+.cell:hover{
+  background-color: orange;
+}
+
+.isClicked{
+  background-color: grey;
+}
+
+.boom:hover{
+  background-color: tomato;
+}
+
+.boom{
+  background-color: tomato;
+}
