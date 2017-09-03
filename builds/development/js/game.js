@@ -1,6 +1,8 @@
 const BOARD = document.querySelector("#board");
 const HEADER = document.querySelector('#header');
 const BTN = document.querySelector('#resetBtn');
+const TIMER = document.querySelector('#timer');
+
 //var timer;
 //var resetBtn;
 var allGrids = [];
@@ -10,6 +12,9 @@ var row = 16; //16
 
 var leftButtonDown = false;
 var rightButtonDown = false;
+
+var interval;
+var time;
 
 var gameStart = false, gameEnd = false;
 
@@ -74,6 +79,11 @@ function resetGame(){
   allGrids = [];
   gameStart = false;
   gameEnd = false;
+  time = 0;
+
+  TIMER.innerHTML = '0';
+
+  stopTicking();
 
   init();
   show();
@@ -135,6 +145,7 @@ function clicked(id, e){
       if (!gameStart){
         generateGrids(id);
         gameStart = true;
+        tick();
       }
       leftClick(id);
       leftButtonDown = false;
@@ -143,8 +154,10 @@ function clicked(id, e){
       rightClick(id);
       rightButtonDown = false;
     }
-    if(gameEnd)
+    if(gameEnd){
+      stopTicking();
       message('You Lose!');
+    }
   }
 }
 
@@ -190,6 +203,21 @@ function rightClick(id){
   }
 }
 
+function updateTime(time){
+  TIMER.innerHTML = time.toString();
+}
+
+function tick(){
+  interval = setInterval(function(){
+    time += 1;
+    updateTime(time);
+  }, 1000);
+}
+
+function stopTicking(){
+  clearInterval(interval);
+}
 
 init();
 show();
+var time = 0;

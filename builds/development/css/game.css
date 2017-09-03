@@ -11,11 +11,11 @@ body{
   margin: auto;
 }
 
-.counter {
+#counter {
   float: left;
 }
 
-.timer {
+#timer {
   float: right;
 }
 
