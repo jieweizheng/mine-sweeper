@@ -1,6 +1,6 @@
 var gulp = require("gulp");
 var connect = require("gulp-connect");
-
+var concat = require("gulp-concat");
 
 var addr = {
   css: 'builds/development/css/*.css',
@@ -20,8 +20,14 @@ gulp.task('reload', function(){
   .pipe(connect.reload());
 });
 
-gulp.task('watch', function(){
-  gulp.watch([addr.css, addr.html], ['reload'])
+gulp.task('js', function(){
+  gulp.src('builds/development/js/*.js')
+  .pipe(concat('game.js'))
+  .pipe(gulp.dest('builds/development'));
 });
 
-gulp.task('default', ['start-connect-server', 'watch']);
+gulp.task('watch', function(){
+  gulp.watch([addr.css, addr.html, addr.js], ['js', 'reload'])
+});
+
+gulp.task('default', ['js', 'start-connect-server', 'watch']);
