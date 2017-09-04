@@ -2,6 +2,8 @@ const BOARD = document.querySelector("#board");
 const HEADER = document.querySelector('#header');
 const BTN = document.querySelector('#resetBtn');
 const TIMER = document.querySelector('#timer');
+const COUNT = document.querySelector('#counter');
+
 
 //var timer;
 //var resetBtn;
@@ -14,7 +16,8 @@ var leftButtonDown = false;
 var rightButtonDown = false;
 
 var interval;
-var time;
+var time = 0;
+var count = level;
 
 var gameStart = false, gameEnd = false;
 
@@ -37,6 +40,9 @@ function init(){
       }
     );
   }
+
+  updateTime(time);
+  updateCount(count);
 };
 
 function generateGrids(id){
@@ -80,8 +86,10 @@ function resetGame(){
   gameStart = false;
   gameEnd = false;
   time = 0;
+  count = level;
 
   TIMER.innerHTML = '0';
+  COUNT.innerHTML = count;
 
   stopTicking();
 
@@ -199,8 +207,20 @@ function rightClick(id){
   var grid = allGrids[id];
   if (!grid.isClicked){
     grid.flagged = !grid.flagged;
-    grid.element.innerHTML = grid.flagged ? 'F' : '';
+    if (grid.flagged){
+      grid.element.innerHTML = 'F';
+      count--;
+    }
+    else {
+      grid.element.innerHTML = '';
+      count++;
+    }
   }
+  updateCount(count);
+}
+
+function updateCount(count){
+  COUNT.innerHTML = count.toString();
 }
 
 function updateTime(time){
