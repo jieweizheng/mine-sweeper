@@ -39,8 +39,10 @@ function clicked(id, e){
       rightButtonDown = false;
     }
     if(gameEnd){
-      stopTicking();
-      message('You Lose!');
+      endGame('false');
+    }
+    else if (checkWin()) {
+      endGame('win');
     }
   }
 }
@@ -105,6 +107,17 @@ function mouseDown(e){
 
 function updateCount(count){
   COUNT.innerHTML = count.toString();
+}
+
+function endGame(gameResult){
+  stopTicking();
+  message(gameResult === 'win'? 'You win!' : 'You Lose!');
+}
+
+function checkWin(){
+  if(allGrids.filter(function(grid){return !grid.isClicked;}).length === level)
+    return true;
+  return false;
 }
 
 init();

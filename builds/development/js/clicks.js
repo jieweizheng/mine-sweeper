@@ -19,8 +19,10 @@ function clicked(id, e){
       rightButtonDown = false;
     }
     if(gameEnd){
-      stopTicking();
-      message('You Lose!');
+      endGame('false');
+    }
+    else if (checkWin()) {
+      endGame('win');
     }
   }
 }
