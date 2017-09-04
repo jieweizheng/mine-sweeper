@@ -21,7 +21,7 @@ gulp.task('reload', function(){
 });
 
 gulp.task('js', function(){
-  gulp.src('builds/development/js/*.js')
+  gulp.src(['builds/development/js/variables.js', 'builds/development/js/*.js'])
   .pipe(concat('game.js'))
   .pipe(gulp.dest('builds/development'));
 });
