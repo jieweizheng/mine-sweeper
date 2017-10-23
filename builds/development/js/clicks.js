@@ -45,7 +45,9 @@ function leftClick(id){
     if (!currentGrid.isClicked && !currentGrid.flagged){
       currentGrid.isClicked = true;
       if (currentGrid.hasMine){
-        currentGrid.element.innerHTML = '*';
+        var explosion = document.createElement('img');
+        explosion.src = './img/explosion_24x24.png';
+        currentGrid.element.appendChild(explosion);
         currentGrid.element.className += ' boom';
         gameEnd = true;
         continue;
@@ -66,11 +68,14 @@ function rightClick(id){
   if (!grid.isClicked){
     grid.flagged = !grid.flagged;
     if (grid.flagged){
-      grid.element.innerHTML = 'F';
+      var flag = document.createElement('img');
+      flag.src = './img/flag_24x24.png';
+      flag.className = 'flag';
+      grid.element.appendChild(flag);
       count--;
     }
     else {
-      grid.element.innerHTML = '';
+      grid.element.removeChild(grid.element.firstChild);
       count++;
     }
   }

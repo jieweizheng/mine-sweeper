@@ -1,5 +1,4 @@
 function init(){
-  BOARD.style['min-width'] = ((25 * col) + 1).toString() + 'px';
   for (var i = 0; i < row * col; i++){
     var div = document.createElement('div');
     div.setAttribute('class', 'cell');
@@ -18,8 +17,13 @@ function init(){
     );
   }
 
+  rows = document.getElementsByClassName('row');
+  cells = document.getElementsByClassName('cell');
+
   updateTime(time);
   updateCount(count);
+
+  show();
 };
 
 function generateGrids(id){
@@ -48,4 +52,5 @@ function show(){
     }
     divRow.appendChild(allGrids[i].element);
   }
+  updateSize();
 }

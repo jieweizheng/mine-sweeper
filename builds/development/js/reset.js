@@ -19,7 +19,6 @@ function resetGame(){
   stopTicking();
 
   init();
-  show();
 
   message('Good Luck!');
 }

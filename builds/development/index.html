@@ -4,14 +4,12 @@
 		<link rel="stylesheet" href="css/game.css">
 	</head>
 	<body>
-		<div id="board">
-			<div id='header'>
-				<button type="button" id='resetBtn' onclick="resetGame()">Good Luck!</button>
-				<p id='counter'>Counter</p>
-				<p id='timer'>Timer</p>
-				</div>
-			</div>
+		<div id='header'>
+			<p >Mines left: <span id='counter'></span></p>
+			<button type="button" id='resetBtn' onclick="resetGame()">Good Luck!</button>
+			<p>Time: <span id='timer'></span></p>
 		</div>
+		<div id="board"></div>
 	</body>
 </html>
 <script type="text/javascript" src='game.js'></script>

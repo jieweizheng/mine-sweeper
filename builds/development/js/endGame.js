@@ -1,6 +1,6 @@
 function endGame(gameResult){
   stopTicking();
-  message(gameResult === 'win'? 'You win!' : 'You Lose!');
+  message(gameResult === 'win'? 'You win! (PLay again)' : 'You Lose! (Play again)');
 }
 
 function checkWin(){
