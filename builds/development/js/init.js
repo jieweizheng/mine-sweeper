@@ -5,7 +5,7 @@ function init(){
   };
 
   BOARD.onmouseup = function(e){
-    clicked(parseInt(e.target.id), e)
+      clicked(parseInt(e.target.id), e);
   };
 
   BOARD.oncontextmenu = function(){

@@ -40,6 +40,7 @@
   user-select: none;
   cursor: pointer;
   vertical-align: middle;
+  position: relative;
 }
 
 .cell:hover{
@@ -58,7 +59,20 @@
   background-color: tomato;
 }
 
-.flag{
-  width: 100%;
+.boom::after{
+  content: '';
+  background: url(../img/explosion_24x24.png) no-repeat center / cover;
+  display: block;
   height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
+.flagged::after{
+  content: '';
+  background: url(../img/flag_24x24.png) no-repeat center / cover;
+  display: block;
+  height: 100%;
+  width: 100%;
+  position: absolute;
 }
