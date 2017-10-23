@@ -1,6 +1,7 @@
 function clicked(id, e){
   if(!gameEnd){
     if (leftButtonDown && rightButtonDown) {
+      console.log(id);
       bothClick(id);
       leftButtonDown = false;
       rightButtonDown = false;
@@ -57,7 +58,7 @@ function leftClick(id){
       currentGrid.flagged = false;
       if (!currentGrid.mineCount)
         sweepingList = sweepingList.concat(adjGrids);
-      currentGrid.element.innerHTML = '<span>' + (currentGrid.mineCount ? currentGrid.mineCount : '') + '</span>';
+      currentGrid.element.innerHTML = currentGrid.mineCount ? currentGrid.mineCount.toString() : '';
       currentGrid.element.className += ' isClicked';
     }
   }

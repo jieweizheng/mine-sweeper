@@ -1,10 +1,20 @@
 function init(){
+
+  BOARD.onmousedown = function(e){
+    mouseDown(e);
+  };
+
+  BOARD.onmouseup = function(e){
+    clicked(parseInt(e.target.id), e)
+  };
+
+  BOARD.oncontextmenu = function(){
+    return false;
+  };
+
   for (var i = 0; i < row * col; i++){
     var div = document.createElement('div');
     div.setAttribute('class', 'cell');
-    div.setAttribute('onmouseup', 'clicked(parseInt(this.id), event)');
-    div.setAttribute('onmousedown', 'mouseDown(event)');
-    div.setAttribute('oncontextmenu', 'return false;');
     div.setAttribute('id', i);
     allGrids.push(
       {
