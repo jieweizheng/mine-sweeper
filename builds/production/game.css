@@ -1,0 +1,78 @@
+*{
+  margin: 0;
+}
+
+#header {
+  display: flex;
+  justify-content: space-around;
+  margin: 2%;
+}
+
+#resetBtn {
+}
+
+#counter {
+}
+
+#timer {
+}
+
+#board {
+  text-align: center;
+  height: 100%;
+  min-width: 320px;
+  box-sizing: border-box;
+}
+
+.row:last-of-type .cell{
+  border-bottom: 1px solid red;
+}
+
+.cell:last-child{
+  border-right: 1px solid red;
+}
+
+.cell{
+  display: inline-block;
+  background-color: white;
+  border-left: 1px solid red;
+  border-top: 1px solid red;
+  user-select: none;
+  cursor: pointer;
+  vertical-align: middle;
+  position: relative;
+}
+
+.cell:hover{
+  background-color: orange;
+}
+
+.isClicked{
+  background-color: grey;
+}
+
+.boom:hover{
+  background-color: tomato;
+}
+
+.boom{
+  background-color: tomato;
+}
+
+.boom::after{
+  content: '';
+  background: url(../img/explosion_24x24.png) no-repeat center / cover;
+  display: block;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
+.flagged::after{
+  content: '';
+  background: url(../img/flag_24x24.png) no-repeat center / cover;
+  display: block;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}

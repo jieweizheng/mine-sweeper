@@ -1,7 +1,6 @@
 function clicked(id, e){
   if(!gameEnd){
     if (leftButtonDown && rightButtonDown) {
-      console.log(id);
       bothClick(id);
       leftButtonDown = false;
       rightButtonDown = false;
